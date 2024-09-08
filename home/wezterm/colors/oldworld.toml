@@ -1,0 +1,56 @@
+[colors]
+foreground = "#c9c7cd"
+background = "#161617"
+cursor_bg = "#c9c7cd"
+cursor_border = "#c9c7cd"
+cursor_fg = "#161617"
+selection_bg = "#3C3B3E"
+selection_fg = "#c9c7cd"
+split = "#2e7de9"  # From Tokyo Night (day)
+compose_cursor = "#b15c00"  # From Tokyo Night (day)
+scrollbar_thumb = "#c4c8da"  # From Tokyo Night (day)
+
+ansi = ["#27272a", "#ea83a5", "#90b99f", "#e6b99d", "#9ca2cf", "#aca1cf", "#85b5ba", "#c9c7cd"]
+brights = ["#353539", "#ED96B3", "#a7c8b3", "#eac5ae", "#acb1d7", "#b7aed5", "#97c0c4", "#d3d1d7"]
+
+[colors.tab_bar]
+inactive_tab_edge = "#d0d5e3"  # From Tokyo Night (day)
+background = "#161617"
+
+[colors.tab_bar.active_tab]
+fg_color = "#d0d5e3"  # From Tokyo Night (day)
+bg_color = "#353539"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#57575f"
+bg_color = "#1b1b1d"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#2e7de9"  # From Tokyo Night (day)
+bg_color = "#1b1b1d"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#2e7de9"  # From Tokyo Night (day)
+bg_color = "#161617"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#2e7de9"  # From Tokyo Night (day)
+bg_color = "#161617"
+
+[window]
+border_color = "#2a2a2d"
+active_border_color = "#57575f"
+inactive_border_color = "#2a2a2d"
+
+[tabs]
+active_tab_foreground = "#c9c7cd"
+active_tab_background = "#353539"
+inactive_tab_foreground = "#57575f"
+inactive_tab_background = "#1b1b1d"
+inactive_text_alpha = 1.0
+
+[metadata]
+aliases = []
+author = "dgox16"
+name = "oldworld"

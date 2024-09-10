@@ -56,11 +56,10 @@
     floorp
     vesktop
     wezterm
-    tofi
+    gh
+    lazygit
   ];
 
-  xdg.configFile.nvim.source = ./nvim;
-  xdg.configFile.sway.source = ./sway;
   xdg.configFile.wezterm.source = ./wezterm;
   
   programs.git = {

@@ -11,4 +11,6 @@ config.font = wezterm.font_with_fallback {
 
 config.color_scheme = "oldworld"
 
+config.front_end = "WebGpu"
+
 return config

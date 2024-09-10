@@ -11,8 +11,17 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    grub = {
+      enable = true;
+      device = "nodev";
+      useOSProber = true;
+      efiSupport = true;
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -21,20 +30,17 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Greetd
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      default_session = {
-        command = "${pkgs.sway}/bin/sway";
-	user = "zhai";
-      };
-    };
-  };
+  # X11 windowing system
+  services.xserver.enable = true;
+
+  # KDE Plasma
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.defaultSession = "plasma";
 
   # Fish
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish; # not using systemd-boot so emergency mode workaround not needed (i hope)
+  programs.fish.enable = true; users.defaultUserShell = pkgs.fish; # not using systemd-boot so emergency mode workaround not needed (i hope)
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -65,7 +71,9 @@
         alsa.support32Bit = true;
         pulse.enable = true;
         jack.enable = true;
-    };
+  };
+
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -95,10 +103,7 @@
     pkgs.curl
     pkgs.home-manager
     
-    pkgs.grim
-    pkgs.slurp
     pkgs.wl-clipboard
-    pkgs.mako
 
     pkgs.libclang
     pkgs.clang_18
@@ -111,20 +116,8 @@
     pkgs.rustc
     pkgs.clippy
 
-    pkgs-unstable.neovim
+    pkgs.neovim
   ];
-
-  # Gnome keyring
-  services.gnome.gnome-keyring.enable = true;
-
-  # Sway
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
-  # Polkit
-  security.polkit.enable = true;
 
   # Editor
   environment.variables.EDITOR = "nvim";

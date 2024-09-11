@@ -53,11 +53,14 @@
     pciutils
     usbutils
 
+    grc
+
     floorp
     vesktop
     wezterm
     gh
     lazygit
+    spotify
   ];
 
   xdg.configFile.wezterm.source = ./wezterm;
@@ -66,6 +69,41 @@
     enable = true;
     userName = "hozhai";
     userEmail = "zhaihongmeng@gmail.com";
+  };
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      function fish_greeting
+	# todo
+      end
+
+      alias vim="nvim";
+      alias svim="sudo nvim";
+
+      alias ls="eza --icons -aa"
+      alias l="eza --icons -aalh"
+
+      alias rebuild="/home/zhai/.nixos-config/rebuild.fish"
+    '';
+    plugins = [
+      {
+        name = "grc";
+	src = pkgs.fishPlugins.grc.src;
+      }
+      {
+        name = "z";
+	src = pkgs.fishPlugins.z.src;
+      }
+      {
+        name = "tide";
+	src = pkgs.fishPlugins.tide.src;
+      }
+      {
+        name = "autopair";
+	src = pkgs.fishPlugins.autopair.src;
+      }
+    ];
   };
 
   programs.home-manager.enable = true;

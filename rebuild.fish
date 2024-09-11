@@ -21,7 +21,7 @@ end
 
 # Print a header
 print_in_color $CYAN "******************************************"
-print_in_color $CYAN "*            NixOS Rebuild Script       *"
+print_in_color $CYAN "*           NixOS Rebuild Script         *"
 print_in_color $CYAN "******************************************"
 echo ""
 
@@ -37,12 +37,10 @@ print_in_color $YELLOW "Running command: $command"
 echo ""
 
 # Run the command and display logs
-eval $command 2>&1 | while read -l line
-    print_in_color $WHITE "$line"
-end
+sudo nixos-rebuild switch --flake .#nixos
 
 # Print a footer
 echo ""
 print_in_color $CYAN "******************************************"
-print_in_color $CYAN "*               Rebuild Completed        *"
+print_in_color $CYAN "*            Rebuild Completed           *"
 print_in_color $CYAN "******************************************"

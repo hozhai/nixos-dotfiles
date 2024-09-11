@@ -109,14 +109,23 @@
     pkgs.clang_18
     pkgs.libgcc
     pkgs.glibc
+    pkgs.cmake
+    pkgs.extra-cmake-modules
+
+    pkgs.ninja
 
     pkgs.nodejs_22
-
     pkgs.cargo
     pkgs.rustc
     pkgs.clippy
 
     pkgs.neovim
+
+    pkgs.kdePackages.qtvirtualkeyboard
+    pkgs.kdePackages.qtmultimedia
+    pkgs.kdePackages.qt5compat
+    pkgs.kdePackages.plasma-wayland-protocols
+    pkgs.kdePackages.plasma5support
   ];
 
   # Editor
@@ -124,10 +133,10 @@
   environment.variables.VISUAL = "nvim";
 
   # Fonts
-    fonts.packages = with pkgs; [
-        julia-mono
-        (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-    ];
+  fonts.packages = with pkgs; [
+      julia-mono
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

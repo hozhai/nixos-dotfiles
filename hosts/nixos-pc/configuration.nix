@@ -126,6 +126,7 @@
     pkgs.kdePackages.qt5compat
     pkgs.kdePackages.plasma-wayland-protocols
     pkgs.kdePackages.plasma5support
+    pkgs.kdePackages.qtstyleplugin-kvantum
   ];
 
   # Editor

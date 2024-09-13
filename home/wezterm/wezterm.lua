@@ -9,7 +9,7 @@ config.font = wezterm.font_with_fallback {
     'Symbols Nerd Font'
 }
 
-config.color_scheme = "oldworld"
+config.color_scheme = "Catppuccin Mocha"
 
 config.front_end = "WebGpu"
 

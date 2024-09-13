@@ -64,6 +64,7 @@
   ];
 
   xdg.configFile.wezterm.source = ./wezterm;
+  xdg.configFile.nvim.source = ./nvim;
   
   programs.git = {
     enable = true;

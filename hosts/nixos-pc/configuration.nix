@@ -30,14 +30,12 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # X11 windowing system
+  # KDE
   services.xserver.enable = true;
-
-  # KDE Plasma
   services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.displayManager.defaultSession = "plasma";
+  services.displayManager.sddm.wayland.enable = true;
 
   # Fish
   programs.fish.enable = true; users.defaultUserShell = pkgs.fish; # not using systemd-boot so emergency mode workaround not needed (i hope)
@@ -120,13 +118,6 @@
     pkgs.clippy
 
     pkgs.neovim
-
-    pkgs.kdePackages.qtvirtualkeyboard
-    pkgs.kdePackages.qtmultimedia
-    pkgs.kdePackages.qt5compat
-    pkgs.kdePackages.plasma-wayland-protocols
-    pkgs.kdePackages.plasma5support
-    pkgs.kdePackages.qtstyleplugin-kvantum
   ];
 
   # Editor

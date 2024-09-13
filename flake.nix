@@ -28,6 +28,7 @@
         };
 	modules = [
 	  ./hosts/nixos-pc/configuration.nix
+	  ./home/nixvim/nixvim.nix
 
 	  home-manager.nixosModules.home-manager
 	  {

@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-stable, inputs, ... }:
 
 {
+  imports = [
+    ./nixvim/nixvim.nix
+  ];
+
   home.username = "zhai";
   home.homeDirectory = "/home/zhai";
 
@@ -64,7 +68,6 @@
   ];
 
   xdg.configFile.wezterm.source = ./wezterm;
-  xdg.configFile.nvim.source = ./nvim;
   
   programs.git = {
     enable = true;

@@ -35,6 +35,7 @@
 	    home-manager.useUserPackages = true;
 	    home-manager.users.zhai = import ./home/home.nix;
 	    home-manager.extraSpecialArgs.inputs = inputs;
+            home-manager.backupFileExtension = "backup";
 	  }
 	];
       };

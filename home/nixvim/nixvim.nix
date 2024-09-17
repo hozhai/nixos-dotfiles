@@ -13,7 +13,7 @@
     diagnostics = {
       virtual_text = true;
       virtual_lines.only_current_line = true;
-    }
+    };
 
     plugins = {
       lualine.enable = true;

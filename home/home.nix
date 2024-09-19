@@ -1,6 +1,10 @@
-{ config, pkgs, pkgs-stable, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  pkgs-stable,
+  inputs,
+  ...
+}: {
   imports = [
     ./nixvim/nixvim.nix
     ./gnome/gnome.nix
@@ -48,7 +52,7 @@
     btop
     iotop
     iftop
-    
+
     strace
     ltrace
     lsof
@@ -66,25 +70,12 @@
     lazygit
     spotify
     gnome-tweaks
+    dconf-editor
+    tilix
   ];
 
-  programs.wezterm = {
-    enable = true;
-    extraConfig = ''
-      local wezterm = require 'wezterm'
-      local config = wezterm.config_builder()
-
-      config.use_fancy_tab_bar = false
-      config.font = wezterm.font_with_fallback {
-        'Julia Mono',
-        'Symbols Nerd Font'
-      }
-      config.color_scheme = "Catppuccin Mocha"
-      config.front_end = "WebGpu"
-
-      return config
-    '';
-  };
+  home.file.".config/tilix/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;
+  home.file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;
 
   programs.git = {
     enable = true;
@@ -92,11 +83,18 @@
     userEmail = "zhaihongmeng@gmail.com";
   };
 
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      catppuccin.catppuccin-vsc
+    ];
+  };
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       function fish_greeting
-	# todo
+
       end
 
       alias vim="nvim";
@@ -105,24 +103,26 @@
       alias ls="eza --icons -aa"
       alias l="eza --icons -aalh"
 
-      alias rebuild="/home/zhai/.nixos-config/rebuild.fish"
+      alias lg="lazygit"
+
+      alias rebuild="/home/zhai/.config/nixos/rebuild.sh"
     '';
     plugins = [
       {
         name = "grc";
-	src = pkgs.fishPlugins.grc.src;
+        src = pkgs.fishPlugins.grc.src;
       }
       {
         name = "z";
-	src = pkgs.fishPlugins.z.src;
+        src = pkgs.fishPlugins.z.src;
       }
       {
         name = "tide";
-	src = pkgs.fishPlugins.tide.src;
+        src = pkgs.fishPlugins.tide.src;
       }
       {
         name = "autopair";
-	src = pkgs.fishPlugins.autopair.src;
+        src = pkgs.fishPlugins.autopair.src;
       }
     ];
   };

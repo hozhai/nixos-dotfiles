@@ -1,14 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, pkgs-unstable, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  pkgs-unstable,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader = {
@@ -21,6 +24,11 @@
       useOSProber = true;
       efiSupport = true;
     };
+  };
+
+  distro-grub-themes = {
+    enable = true;
+    theme = "asus-rog";
   };
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -36,12 +44,27 @@
   # Gnome
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+    epiphany
+    geary
+  ];
 
-  services.udev.packages = [ pkgs.gnome-settings-daemon ];
+  services.udev.packages = [pkgs.gnome-settings-daemon];
 
   # Fish
-  programs.fish.enable = true; 
-  users.defaultUserShell = pkgs.fish; # not using systemd-boot so emergency mode workaround not needed (i hope)
+  programs.fish.enable = true;
+
+  # Bash
+  programs.bash = {
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -68,14 +91,12 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        jack.enable = true;
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
-
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -84,14 +105,13 @@
   };
 
   # Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zhai = {
     isNormalUser = true;
     description = "Hongmeng Zhai";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # Allow unfree packages
@@ -103,8 +123,9 @@
     pkgs.wget
     pkgs.git
     pkgs.curl
+    pkgs.nurl
     pkgs.home-manager
-    
+
     pkgs.wl-clipboard
 
     pkgs.libclang
@@ -120,6 +141,7 @@
     pkgs.cargo
     pkgs.rustc
     pkgs.clippy
+    pkgs.python3
 
     pkgs.neovim
   ];
@@ -130,8 +152,8 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-      julia-mono
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    julia-mono
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -160,5 +182,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }

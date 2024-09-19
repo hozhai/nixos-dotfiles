@@ -12,6 +12,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
   };
 
   outputs = inputs @ { nixpkgs, nixpkgs-stable, home-manager, ...}: {
@@ -28,6 +29,7 @@
         };
 	modules = [
 	  ./hosts/nixos-pc/configuration.nix
+          inputs.distro-grub-themes.nixosModules."x86_64-linux".default
 
 	  home-manager.nixosModules.home-manager
 	  {

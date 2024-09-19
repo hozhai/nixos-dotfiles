@@ -82,8 +82,7 @@
         disable-user-extensions = false;
         favorite-apps = [
           "floorp.desktop"
-          "com.gexperts.Tilix.desktop"
-          "com.gexperts.Tilix.desktop"
+          "com.raggesilver.BlackBox.desktop"
           "vesktop.desktop"
           "spotify.desktop"
         ];

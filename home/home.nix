@@ -71,10 +71,10 @@
     spotify
     gnome-tweaks
     dconf-editor
-    tilix
+    blackbox-terminal
   ];
 
-  home.file.".config/tilix/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;
+  home.file.".local/share/blackbox/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;
   home.file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;
 
   programs.git = {

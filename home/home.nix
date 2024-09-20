@@ -62,6 +62,11 @@
     pciutils
     usbutils
 
+    nodePackages.vercel
+
+    tailwindcss-language-server
+    typescript
+
     grc
 
     floorp
@@ -72,7 +77,8 @@
     gnome-tweaks
     dconf-editor
     blackbox-terminal
-    nodePackages.vercel
+    qbittorrent
+    zed-editor
   ];
 
   home.file.".local/share/blackbox/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;

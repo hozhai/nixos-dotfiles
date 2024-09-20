@@ -115,5 +115,14 @@
       virtual_text = true;
       virtual_lines.only_current_line = true;
     };
+
+    performance = {
+      combinePlugins = {
+        enable = true;
+      };
+      byteCompileLua = {
+        enable = true;
+      };
+    };
   };
 }

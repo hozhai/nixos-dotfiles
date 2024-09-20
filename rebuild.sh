@@ -12,6 +12,7 @@ ART="
 ░▀░▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░░░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀░
 "
 
+echo -e "${YELLOW}---------------------------------------------------${RESET}"
 echo -e "${BLUE}${ART}${RESET}"
 echo -e "${YELLOW}Starting NixOS rebuild...${RESET}"
 

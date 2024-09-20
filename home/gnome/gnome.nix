@@ -3,6 +3,10 @@
   pkgs-stable,
   ...
 }: {
+  imports = [
+    ./blackbox.nix
+  ];
+
   home.file."./Pictures/wallpaper.jpg".source = ../assets/wallpaper.jpg;
 
   home.packages =

@@ -161,6 +161,10 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
+  # Virtualbox
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = ["zhai"];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;

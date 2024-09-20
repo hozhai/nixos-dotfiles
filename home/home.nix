@@ -72,6 +72,7 @@
     gnome-tweaks
     dconf-editor
     blackbox-terminal
+    nodePackages.vercel
   ];
 
   home.file.".local/share/blackbox/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;

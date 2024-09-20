@@ -12,14 +12,13 @@
     ./plugins/bufferline.nix
     ./plugins/conform.nix
     ./plugins/cmp.nix
-    ./plugins/dashboard.nix
     ./plugins/dressing.nix
     ./plugins/indent-blankline.nix
     ./plugins/gitsigns.nix
     ./plugins/lualine.nix
     ./plugins/lsp.nix
     ./plugins/mini.nix
-    ./plugins/nvim-tree.nix
+    ./plugins/neo-tree.nix
     ./plugins/telescope.nix
     ./plugins/treesitter.nix
   ];

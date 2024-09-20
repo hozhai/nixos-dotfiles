@@ -3,7 +3,7 @@
   pkgs-stable,
   ...
 }: {
-  home.file."./Pictures/wallpaper.png".source = ../assets/wallpaper.png;
+  home.file."./Pictures/wallpaper.jpg".source = ../assets/wallpaper.jpg;
 
   home.packages =
     (with pkgs.gnomeExtensions; [
@@ -17,6 +17,9 @@
       dash-to-dock
       quick-settings-tweaker
       desktop-cube
+      gnome-40-ui-improvements
+      removable-drive-menu
+      transparent-window-moving
     ])
     ++ (with pkgs; [
       # Others
@@ -57,10 +60,10 @@
 
   home.sessionVariables.GTK_THEME = "Catppuccin-GTK-Dark";
 
-  programs.gnome-shell.theme = {
-    name = "Catppuccin-GTK-Dark";
-    package = pkgs.magnetic-catppuccin-gtk;
-  };
+  # programs.gnome-shell.theme = {
+  #   name = "Catppuccin-GTK-Dark";
+  #   package = pkgs.magnetic-catppuccin-gtk;
+  # };
 
   dconf = {
     enable = true;
@@ -71,11 +74,11 @@
       };
 
       "org/gnome/desktop/background" = {
-        "picture-uri-dark" = "/home/zhai/Pictures/wallpaper.png";
+        "picture-uri-dark" = "/home/zhai/Pictures/wallpaper.jpg";
       };
 
       "org/gnome/desktop/screensaver" = {
-        "picture-uri" = "/home/zhai/Pictures/wallpaper.png";
+        "picture-uri" = "/home/zhai/Pictures/wallpaper.jpg";
       };
 
       "org/gnome/shell" = {
@@ -96,6 +99,9 @@
           dash-to-dock.extensionUuid
           quick-settings-tweaker.extensionUuid
           desktop-cube.extensionUuid
+          gnome-40-ui-improvements.extensionUuid
+          removable-drive-menu.extensionUuid
+          transparent-window-moving.extensionUuid
         ];
       };
 

@@ -129,15 +129,20 @@
     pkgs.wl-clipboard
 
     pkgs.libclang
-    pkgs.clang_18
+    pkgs.clang
+    pkgs.gcc
     pkgs.libgcc
     pkgs.glibc
+    pkgs.libredirect
     pkgs.cmake
     pkgs.extra-cmake-modules
+    pkgs.gnumake
 
     pkgs.ninja
 
     pkgs.nodejs_22
+    pkgs.pnpm
+    pkgs.yarn
     pkgs.cargo
     pkgs.rustc
     pkgs.clippy

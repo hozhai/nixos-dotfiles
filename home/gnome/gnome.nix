@@ -24,10 +24,11 @@
       gnome-40-ui-improvements
       removable-drive-menu
       transparent-window-moving
+      caffeine
+      logo-menu
     ])
     ++ (with pkgs; [
       # Others
-      magnetic-catppuccin-gtk
       numix-icon-theme
       posy-cursors
     ]);
@@ -37,11 +38,6 @@
     iconTheme = {
       name = "Numix";
       package = pkgs.numix-icon-theme;
-    };
-
-    theme = {
-      name = "Catppuccin-GTK-Dark";
-      package = pkgs.magnetic-catppuccin-gtk;
     };
 
     cursorTheme = {
@@ -61,13 +57,6 @@
       '';
     };
   };
-
-  home.sessionVariables.GTK_THEME = "Catppuccin-GTK-Dark";
-
-  # programs.gnome-shell.theme = {
-  #   name = "Catppuccin-GTK-Dark";
-  #   package = pkgs.magnetic-catppuccin-gtk;
-  # };
 
   dconf = {
     enable = true;
@@ -106,6 +95,8 @@
           gnome-40-ui-improvements.extensionUuid
           removable-drive-menu.extensionUuid
           transparent-window-moving.extensionUuid
+          caffeine.extensionUuid
+          logo-menu.extensionUuid
         ];
       };
 
@@ -122,10 +113,12 @@
         extend-height = false;
         dock-position = "BOTTOM";
         multi-monitor = true;
+        running-indicator-style = "DASHES";
+        transparency-mode = "DYNAMIC";
       };
 
       "org/gnome/shell/extensions/vitals" = {
-        hot-sensors = ["__temperature_avg__" "_network-rx_eno1_rx_" "_network-tx_eno1_tx_" "_processor_usage_"];
+        hot-sensors = ["__temperature_avg__" "_processor_usage_" "_network-rx_eno1_rx_" "_network-tx_eno1_tx_"];
         icon-style = 1;
         position-in-panel = 2;
         show-temperature = true;

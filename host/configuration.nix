@@ -10,19 +10,22 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   # Bootloader.
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-    };
-    grub = {
-      enable = true;
-      device = "nodev";
-      useOSProber = true;
-      efiSupport = true;
+  boot = {
+    initrd.kernelModules = ["amdgpu"];
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+      };
+      grub = {
+        enable = true;
+        device = "nodev";
+        useOSProber = true;
+        efiSupport = true;
+      };
     };
   };
 
@@ -40,6 +43,16 @@
 
   # X11 windowing system
   services.xserver.enable = true;
+
+  # Amdgpu
+  services.xserver.videoDrivers = ["amdgpu"];
+  hardware.graphics.enable32Bit = true;
+  hardware.graphics.extraPackages = with pkgs; [
+    amdvlk
+  ];
+  hardware.graphics.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+  ];
 
   # Gnome
   services.xserver.displayManager.gdm.enable = true;
@@ -128,16 +141,9 @@
 
     pkgs.wl-clipboard
 
-    pkgs.libclang
-    pkgs.clang
-    pkgs.gcc
-    pkgs.libgcc
-    pkgs.glibc
-    pkgs.libredirect
     pkgs.cmake
     pkgs.extra-cmake-modules
     pkgs.gnumake
-
     pkgs.ninja
 
     pkgs.nodejs_22
@@ -173,10 +179,15 @@
     enableSSHSupport = true;
   };
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # Garbage collector
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

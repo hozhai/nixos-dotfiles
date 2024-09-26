@@ -8,6 +8,8 @@
   imports = [
     ./nixvim/nixvim.nix
     ./gnome/gnome.nix
+    ./apps/spicetify.nix
+    ./apps/vscode.nix
   ];
 
   home.username = "zhai";
@@ -64,21 +66,17 @@
 
     nodePackages.vercel
 
-    tailwindcss-language-server
-    typescript
-
     grc
 
     floorp
     vesktop
     gh
     lazygit
-    spotify
+    # spotify # see spicetify.nix
     gnome-tweaks
     dconf-editor
     blackbox-terminal
     qbittorrent
-    zed-editor
   ];
 
   home.file.".local/share/blackbox/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;
@@ -88,13 +86,6 @@
     enable = true;
     userName = "hozhai";
     userEmail = "zhaihongmeng@gmail.com";
-  };
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      catppuccin.catppuccin-vsc
-    ];
   };
 
   programs.fish = {

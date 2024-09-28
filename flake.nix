@@ -19,10 +19,10 @@
       flake = false;
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixvim = {
+    #   url = "github:nix-community/nixvim";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     distro-grub-themes = {
       url = "github:AdisonCavani/distro-grub-themes";
@@ -72,10 +72,12 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.zhai = import ./home/home.nix;
-            home-manager.extraSpecialArgs.inputs = inputs;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.zhai = import ./home/home.nix;
+              extraSpecialArgs.inputs = inputs;
+            };
           }
         ];
       };

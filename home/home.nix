@@ -75,6 +75,7 @@
     qbittorrent
     nodePackages.vercel
     grc
+    neovide
   ];
 
   home.file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;

@@ -68,7 +68,12 @@
     gnome-tour
     epiphany
     geary
+    yelp
+    xterm
+    simple-scan
   ];
+
+  services.xserver.excludePackages = [pkgs.xterm];
 
   services.udev.packages = [pkgs.gnome-settings-daemon];
 
@@ -143,6 +148,7 @@
   environment.systemPackages = [
     pkgs.vim
     pkgs.neovim
+    pkgs.tmux
 
     pkgs.wget
     pkgs.git

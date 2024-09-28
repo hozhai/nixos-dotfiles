@@ -6,10 +6,10 @@
   ...
 }: {
   imports = [
-    ./nixvim/nixvim.nix
     ./gnome/gnome.nix
     ./apps/spicetify.nix
     ./apps/vscode.nix
+    ./apps/alacritty.nix
   ];
 
   home.username = "zhai";
@@ -65,18 +65,18 @@
     usbutils
 
     inputs.zen-browser.packages."x86_64-linux".default
+    inputs.Neve.packages.${pkgs.system}.default
+    statix
     vesktop
     gh
     lazygit
     gnome-tweaks
     dconf-editor
-    blackbox-terminal
     qbittorrent
     nodePackages.vercel
     grc
   ];
 
-  # home.file.".local/share/blackbox/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;
   home.file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;
   home.file.".face".source = ./assets/profile.png;
 

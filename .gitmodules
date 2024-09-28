@@ -1,0 +1,3 @@
+[submodule "home/neve"]
+	path = home/neve
+	url = https://github.com/hozhai/neve-config

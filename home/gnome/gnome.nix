@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./blackbox.nix
   ];
 
   home.file."./Pictures/wallpaper.jpg".source = ../assets/wallpaper.jpg;
@@ -25,7 +24,8 @@
       removable-drive-menu
       transparent-window-moving
       caffeine
-      logo-menu
+      coverflow-alt-tab
+      compiz-alike-magic-lamp-effect
     ])
     ++ (with pkgs; [
       # Others
@@ -78,7 +78,7 @@
         disable-user-extensions = false;
         favorite-apps = [
           "zen.desktop"
-          "com.raggesilver.BlackBox.desktop"
+          "Alacritty.desktop"
           "vesktop.desktop"
           "spotify.desktop"
         ];
@@ -96,7 +96,8 @@
           removable-drive-menu.extensionUuid
           transparent-window-moving.extensionUuid
           caffeine.extensionUuid
-          logo-menu.extensionUuid
+          coverflow-alt-tab.extensionUuid
+          compiz-alike-magic-lamp-effect.extensionUuid
         ];
       };
 

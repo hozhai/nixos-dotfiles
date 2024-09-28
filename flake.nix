@@ -12,7 +12,6 @@
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     flake-compat = {
@@ -43,6 +42,10 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
+    };
+
+    Neve = {
+      url = "github:hozhai/neve-config";
     };
   };
 

@@ -10,6 +10,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flake-compat = {
+      url = "github:inclyc/flake-compat";
+      flake = false;
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,13 +33,23 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = inputs @ {
     nixpkgs,
     nixpkgs-stable,
     home-manager,
-    spicetify-nix,
     ...
   }: {
     nixosConfigurations = {

@@ -77,10 +77,13 @@
     dconf-editor
     blackbox-terminal
     qbittorrent
+
+    inputs.zen-browser.packages."x86_64-linux".default
   ];
 
   home.file.".local/share/blackbox/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;
   home.file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;
+  home.file.".face".source = ./assets/profile.png;
 
   programs.git = {
     enable = true;

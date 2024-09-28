@@ -58,12 +58,21 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages = with pkgs; [
+    gnome-music
+    gnome-console
+    gedit
+    tali
+    iagno
+    hitori
+    atomix
     gnome-tour
     epiphany
     geary
   ];
 
   services.udev.packages = [pkgs.gnome-settings-daemon];
+
+  environment.variables.NIXOS_OZONE_WL = "1";
 
   # Fish
   programs.fish.enable = true;
@@ -139,12 +148,12 @@
     pkgs.nurl
     pkgs.home-manager
 
-    pkgs.wl-clipboard
-
     pkgs.cmake
     pkgs.extra-cmake-modules
     pkgs.gnumake
     pkgs.ninja
+
+    pkgs.wl-clipboard
 
     pkgs.nodejs_22
     pkgs.pnpm

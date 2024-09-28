@@ -77,7 +77,7 @@
       "org/gnome/shell" = {
         disable-user-extensions = false;
         favorite-apps = [
-          "floorp.desktop"
+          "zen.desktop"
           "com.raggesilver.BlackBox.desktop"
           "vesktop.desktop"
           "spotify.desktop"

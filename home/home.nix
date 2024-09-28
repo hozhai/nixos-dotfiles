@@ -64,24 +64,19 @@
     pciutils
     usbutils
 
-    nodePackages.vercel
-
-    grc
-
-    floorp
+    inputs.zen-browser.packages."x86_64-linux".default
     vesktop
     gh
     lazygit
-    # spotify # see spicetify.nix
     gnome-tweaks
     dconf-editor
     blackbox-terminal
     qbittorrent
-
-    inputs.zen-browser.packages."x86_64-linux".default
+    nodePackages.vercel
+    grc
   ];
 
-  home.file.".local/share/blackbox/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;
+  # home.file.".local/share/blackbox/schemes/catppuccin-mocha.json".source = ./assets/catppuccin-mocha-tilix.json;
   home.file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;
   home.file.".face".source = ./assets/profile.png;
 

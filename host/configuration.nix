@@ -142,18 +142,19 @@
   # Stable 24.05 packages
   environment.systemPackages = [
     pkgs.vim
+    pkgs.neovim
+
     pkgs.wget
     pkgs.git
     pkgs.curl
     pkgs.nurl
     pkgs.home-manager
+    pkgs.wl-clipboard
 
     pkgs.cmake
     pkgs.extra-cmake-modules
     pkgs.gnumake
     pkgs.ninja
-
-    pkgs.wl-clipboard
 
     pkgs.nodejs_22
     pkgs.pnpm
@@ -162,8 +163,6 @@
     pkgs.rustc
     pkgs.clippy
     pkgs.python3
-
-    pkgs.neovim
   ];
 
   # Editor
@@ -173,6 +172,9 @@
   # Fonts
   fonts.packages = with pkgs; [
     julia-mono
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 

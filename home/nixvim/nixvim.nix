@@ -109,7 +109,7 @@
       }
     ];
 
-    colorschemes.catppuccin.enable = true;
+    colorschemes.rose-pine.enable = true;
 
     diagnostics = {
       virtual_text = true;

@@ -11,5 +11,5 @@
 
 TODO:
 
-- [] Add BlackBox config into dconf format in gnome.nix (or maybe gnome/blackbox.nix and import it into gnome.nix)
-- [] Add config for everything that needs the config to be in nix
+- [] Switch to Alacritty
+- [] Make Stylix actually work :D

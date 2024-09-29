@@ -10,12 +10,14 @@
     ./apps/spicetify.nix
     ./apps/vscode.nix
     ./apps/alacritty.nix
+    ./fish/fish.nix
   ];
 
-  home.username = "zhai";
-  home.homeDirectory = "/home/zhai";
+  home = {
+  username = "zhai";
+  homeDirectory = "/home/zhai";
 
-  home.packages = with pkgs; [
+  packages = with pkgs; [
     fastfetch
     yazi
 
@@ -64,6 +66,15 @@
     pciutils
     usbutils
 
+    # Formatters
+    nodePackages.prettier
+    prettierd
+    google-java-format
+    black
+    alejandra
+    rustfmt
+
+    # User Apps
     inputs.zen-browser.packages."x86_64-linux".default
     inputs.Neve.packages.${pkgs.system}.default
     statix
@@ -78,53 +89,20 @@
     neovide
   ];
 
-  home.file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;
-  home.file.".face".source = ./assets/profile.png;
+  file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;
+  file.".face".source = ./assets/profile.png;
 
-  programs.git = {
+  };
+
+  programs = {
+  git = {
     enable = true;
     userName = "hozhai";
     userEmail = "zhaihongmeng@gmail.com";
   };
 
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      function fish_greeting
-
-      end
-
-      alias vim="nvim";
-      alias svim="sudo nvim";
-
-      alias ls="eza --icons -aa"
-      alias l="eza --icons -aalh"
-
-      alias lg="lazygit"
-
-      alias rebuild="/home/zhai/.config/nixos/rebuild.sh"
-    '';
-    plugins = [
-      {
-        name = "grc";
-        src = pkgs.fishPlugins.grc.src;
-      }
-      {
-        name = "z";
-        src = pkgs.fishPlugins.z.src;
-      }
-      {
-        name = "tide";
-        src = pkgs.fishPlugins.tide.src;
-      }
-      {
-        name = "autopair";
-        src = pkgs.fishPlugins.autopair.src;
-      }
-    ];
+  home-manager.enable = true;
   };
-
-  programs.home-manager.enable = true;
 
   home.stateVersion = "24.05";
 }

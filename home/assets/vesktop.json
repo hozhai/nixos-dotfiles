@@ -537,11 +537,11 @@
             "enabled": false
         },
         "TypingIndicator": {
-            "enabled": false,
+            "enabled": true,
             "includeCurrentChannel": true,
-            "includeMutedChannels": false,
-            "includeBlockedUsers": false,
-            "indicatorMode": 2
+            "includeMutedChannels": true,
+            "includeBlockedUsers": true,
+            "indicatorMode": 1
         },
         "TypingTweaks": {
             "enabled": false

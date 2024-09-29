@@ -20,11 +20,11 @@
 
       font = {
         normal = {
-          family = "JuliaMono";
-          style = "Regular";
+          family = "Operator Mono";
+          style = "Medium";
         };
 
-        size = 12;
+        size = 13.5;
 
         offset = {
           x = 0;

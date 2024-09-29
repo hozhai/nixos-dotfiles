@@ -73,11 +73,17 @@
     black
     alejandra
     rustfmt
+    statix
+    selene
+    python312Packages.flake8
+    eslint
+    eslint_d
+    nodePackages.jsonlint
+    checkstyle
 
     # User Apps
     inputs.zen-browser.packages."x86_64-linux".default
     inputs.Neve.packages.${pkgs.system}.default
-    statix
     vesktop
     gh
     lazygit

@@ -7,11 +7,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1727633394,
-        "narHash": "sha256-1UP9ktMUmw4Yh85DzwtmJFq05TlRQmAUGzcWSmlxbFE=",
+        "lastModified": 1727652045,
+        "narHash": "sha256-SVr6D6E5Po3VeRl8m09EK6LFrBvyDEmYpKryeSAzPtY=",
         "owner": "hozhai",
         "repo": "neve-config",
-        "rev": "a38f63f4f926a680b8e3a09ecc713c0d302f64ce",
+        "rev": "fdbb397a9b5f348e8db9061c44aa9fa8e9c3d4b5",
         "type": "github"
       },
       "original": {
@@ -642,11 +642,11 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1727545964,
-        "narHash": "sha256-x9871msLvyZbMNWmVgJWPC2yiSdwZ1K5+UZrQgrdMFM=",
+        "lastModified": 1727635018,
+        "narHash": "sha256-WSc/MF4dUeB2UPMznXYv4LeKK/ulD4xsufdN/L5PoL4=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "1e9ec16a3739f275ec771434c2ad8cff9a54c42e",
+        "rev": "0eea8bcb0f9c3c7638e7ee64f98ed9b4ec716830",
         "type": "github"
       },
       "original": {

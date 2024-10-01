@@ -1,5 +1,10 @@
-{ pkgs, pkgs-stable, inputs, ... }: {
-   programs.fish = {
+{
+  pkgs,
+  pkgs-stable,
+  inputs,
+  ...
+}: {
+  programs.fish = {
     enable = true;
     shellAliases = {
       ls = "eza --icons -aa";
@@ -18,7 +23,7 @@
           nohup /home/zhai/.config/nixos/home/fish/neovide.sh > /dev/null 2>&1 &
           disown
       end
-     '';
+    '';
     plugins = [
       {
         name = "grc";
@@ -35,6 +40,10 @@
       {
         name = "autopair";
         src = pkgs.fishPlugins.autopair.src;
+      }
+      {
+        name = "done";
+        src = pkgs.fishPlugins.done.src;
       }
     ];
   };

@@ -26,7 +26,7 @@
       caffeine
       coverflow-alt-tab
       compiz-alike-magic-lamp-effect
-      gtile
+      forge
     ])
     ++ (with pkgs; [
       # Others
@@ -99,7 +99,7 @@
           caffeine.extensionUuid
           coverflow-alt-tab.extensionUuid
           compiz-alike-magic-lamp-effect.extensionUuid
-          gtile.extensionUuid
+          forge.extensionUuid
         ];
       };
 

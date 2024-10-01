@@ -10,6 +10,3 @@
 ```
 
 TODO:
-
-- [] Switch to Alacritty
-- [] Make Stylix actually work :D

@@ -80,6 +80,7 @@
       eslint_d
       nodePackages.jsonlint
       checkstyle
+      go
 
       # User Apps
       inputs.zen-browser.packages."x86_64-linux".default
@@ -93,6 +94,7 @@
       nodePackages.vercel
       grc
       neovide
+      bruno
     ];
 
     file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;

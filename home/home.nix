@@ -6,16 +6,23 @@
   ...
 }: {
   imports = [
-    ./gnome/gnome.nix
     ./apps/spicetify.nix
     ./apps/vscode.nix
     ./apps/alacritty.nix
     ./fish/fish.nix
+    ./sway/sway.nix
   ];
 
   home = {
     username = "zhai";
     homeDirectory = "/home/zhai";
+
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.posy-cursors;
+      name = "Posy_Cursor_Black";
+      size = 24;
+    };
 
     packages = with pkgs; [
       fastfetch
@@ -80,7 +87,6 @@
       eslint_d
       nodePackages.jsonlint
       checkstyle
-      go
 
       # User Apps
       inputs.zen-browser.packages."x86_64-linux".default
@@ -88,7 +94,6 @@
       vesktop
       gh
       lazygit
-      gnome-tweaks
       dconf-editor
       qbittorrent
       nodePackages.vercel
@@ -98,7 +103,6 @@
     ];
 
     file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;
-    file.".face".source = ./assets/profile.png;
   };
 
   programs = {

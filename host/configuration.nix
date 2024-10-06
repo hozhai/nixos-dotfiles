@@ -54,30 +54,21 @@
     driversi686Linux.amdvlk
   ];
 
-  # Gnome
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-music
-    gnome-console
-    gedit
-    tali
-    iagno
-    hitori
-    atomix
-    gnome-tour
-    epiphany
-    geary
-    yelp
-    xterm
-    simple-scan
-  ];
+  # Sway
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
+  services.gnome.gnome-keyring.enable = true;
+
+  security.polkit.enable = true;
 
   services.xserver.excludePackages = [pkgs.xterm];
 
-  services.udev.packages = [pkgs.gnome-settings-daemon];
-
   environment.variables.NIXOS_OZONE_WL = "1";
+
+  services.displayManager.sddm.enable = true;
 
   # Fish
   programs.fish.enable = true;
@@ -146,10 +137,11 @@
 
   # Stable 24.05 packages
   environment.systemPackages = [
+    # Editor
     pkgs.vim
     pkgs.neovim
-    pkgs.tmux
 
+    # Utils
     pkgs.wget
     pkgs.git
     pkgs.curl
@@ -157,11 +149,7 @@
     pkgs.home-manager
     pkgs.wl-clipboard
 
-    pkgs.cmake
-    pkgs.extra-cmake-modules
-    pkgs.gnumake
-    pkgs.ninja
-
+    # Language
     pkgs.nodejs_22
     pkgs.pnpm
     pkgs.yarn
@@ -169,6 +157,13 @@
     pkgs.rustc
     pkgs.clippy
     pkgs.python3
+    pkgs.go
+
+    # Sway
+    pkgs.grim
+    pkgs.slurp
+    pkgs.wl-clipboard
+    pkgs.mako
   ];
 
   # Editor

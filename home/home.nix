@@ -8,7 +8,7 @@
   imports = [
     ./apps/spicetify.nix
     ./apps/vscode.nix
-    ./apps/alacritty.nix
+    ./apps/kitty.nix
     ./fish/fish.nix
     ./sway/sway.nix
   ];
@@ -100,9 +100,12 @@
       grc
       neovide
       bruno
+      bat
+      dolphin
     ];
 
     file.".config/vesktop/settings/settings.json".source = ./assets/vesktop.json;
+    file."Pictures/wallpaper.jpg".source = ./assets/wallpaper.jpg;
   };
 
   programs = {

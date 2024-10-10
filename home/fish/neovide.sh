@@ -7,11 +7,8 @@ setsid neovide &
 
 set neovide_pid $last_pid
 
-# Wait a little to ensure Neovide has time to start
-sleep 0.5
-
 # Close the current terminal (Fish shell with Alacritty)
-if test "$TERM" = "alacritty"
+if test "$TERM" = "xterm-kitty"
     # Get the parent process of the current Fish shell 
     # (this will be Alacritty's shell process)
     set parent_pid (ps -p $fish_pid -o ppid= | tail -n 1 | string trim)
@@ -24,4 +21,4 @@ end
 wait $last_pid
 
 # After Neovide exits, reopen a new Alacritty terminal window
-alacritty &
+kitty &

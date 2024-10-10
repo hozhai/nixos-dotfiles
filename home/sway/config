@@ -4,6 +4,8 @@
       #
       # Read `man 5 sway` for a complete reference.
 
+      exec autotiling
+
       ### Variables
       #
       # Logo key. Use Mod1 for Alt.
@@ -14,14 +16,14 @@
       set $up k
       set $right l
       # Your preferred terminal emulator
-      set $term alacritty
+      set $term kitty
       # Your preferred application launcher
       set $menu tofi-drun | xargs swaymsg exec --
 
       ### Output configuration
       #
       # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-      # output * bg ~/Pictures/wallpaper.jpg fill
+      output * bg ~/Pictures/wallpaper.jpg fill
       #
       # Example configuration:
       #
@@ -216,7 +218,7 @@
           colors {
               statusline #ffffff
               background #323232
-              inactive_workspace #32323200 #32323200 #5c5c5c
+              inactive_workspace #323232ff #323232ff #5c5c5c
           }
       }
 
